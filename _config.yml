@@ -1,0 +1,31 @@
+title: "Erez Zimmerman"
+description: "Erez Zimmerman — Observational Astrophysicist | Supernovae | Time-Domain Astronomy. PhD candidate, Weizmann Institute of Science."
+url: "https://erezimm.github.io"   # TODO: confirm; for a project site also set baseurl: "/<repo>"
+baseurl:
+
+author:
+  name: "Erez Zimmerman"
+  email: "erez.zimmerman@weizmann.ac.il"
+  github: "erezimm"
+  orcid: "0000-0001-8985-2493"
+  ads: "https://ui.adsabs.harvard.edu/search/q=author%3A%22Zimmerman%2C%20Erez%20A%22&sort=date%20desc"
+  scholar:     # TODO: Google Scholar user ID, if you have a profile
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - photos

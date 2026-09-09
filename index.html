@@ -1,0 +1,191 @@
+---
+layout: default
+title: Home
+---
+
+<header class="hero">
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <div class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+        <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+        <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+        <li><a href="{{ '/outreach/' | relative_url }}">Outreach</a></li>
+        <li><a href="{{ '/assets/cv.pdf' | relative_url }}" target="_blank">CV</a></li>
+      </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-name">{{ site.author.name }}</h1>
+        <p class="hero-title">Observational Astrophysicist &nbsp;|&nbsp; Supernovae &nbsp;|&nbsp; Time-Domain Astronomy</p>
+        <p class="hero-bio">
+          I am an observational astronomer studying supernovae of all kinds, from the
+          first hours after explosion to late phases, to constrain their progenitor
+          stars, map their mass-loss history, and understand their explosion
+          mechanisms. I led the Nature study of the decadal supernova 2023ixf, for
+          which I obtained <em>HST</em> UV spectra, and the study of the extremely
+          faint Iax supernova 2024vjm from a pre-explosion <em>Euclid</em> image
+          (in review, Nature Astronomy). I am PI of programs on the Hubble Space
+          Telescope, Chandra, the VLT, and Gemini, and I developed CAST, the transient
+          marshal of the LAST collaboration. PhD candidate at the Weizmann Institute
+          of Science, expected Oct. 2026.
+        </p>
+        <div class="hero-links">
+          <a class="primary" href="{{ '/assets/cv.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
+          <a href="{{ '/publications/' | relative_url }}">Publications</a>
+          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+          <a href="{{ site.author.ads }}" target="_blank" rel="noopener">ADS</a>
+          <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">ORCID</a>
+          {% if site.author.scholar %}<a href="https://scholar.google.com/citations?user={{ site.author.scholar }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
+          <a href="mailto:{{ site.author.email }}">Email</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="{{ '/assets/img/photo.jpg' | relative_url }}" alt="{{ site.author.name }}" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page-nav">
+  <div class="container page-nav-inner">
+    <a class="site-title-sm" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <nav class="site-nav-sm" aria-label="Main navigation">
+      <ul>
+        <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+        <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+        <li><a href="{{ '/outreach/' | relative_url }}">Outreach</a></li>
+        <li><a href="{{ '/assets/cv.pdf' | relative_url }}" target="_blank">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<main class="content">
+  <div class="container">
+
+    <section class="section">
+      <p class="section-label">Selected papers</p>
+      <ul class="pub-list">
+        {% for pub in site.data.publications.first_author %}
+        <li class="pub-item">
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+          </p>
+          <p class="pub-venue">{{ pub.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}{% if pub.journal %} &middot; {{ pub.journal }}{% endif %} ({{ pub.year }})</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="mt-2"><a href="{{ '/publications/' | relative_url }}">All publications &rarr;</a></p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <p class="section-label">Awards</p>
+      <ul class="talk-list">
+        <li class="talk-item"><div class="talk-year">2026</div><div class="talk-title">Prof. Israel Dostrovsky Prize of Excellence, Weizmann School of Science</div></li>
+        <li class="talk-item"><div class="talk-year">2025</div><div class="talk-title">Haim Holtzman Memorial Prize, Weizmann School of Science</div></li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <p class="section-label">Collaborations</p>
+      <p class="lead">
+        I am an active participant in major transient collaborations including LAST,
+        BlackGEM, ePESSTO+, SoXS, ULTRASAT, and formerly ZTF, and a fellow of the
+        <a href="https://www.multimessenger-school.de/members/" target="_blank" rel="noopener">Weizmann–Helmholtz Multi-Messenger School</a>.
+        I developed
+        <a href="https://github.com/erezimm/CAST" target="_blank" rel="noopener">CAST</a>,
+        a TOM-based transient marshal for the LAST collaboration.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script>
+(function () {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [], t = 0, frame;
+  const rand = (a, b) => Math.random() * (b - a) + a;
+
+  function build() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    stars = [];
+    const n = Math.floor(W * H / 4000);
+    for (let i = 0; i < n; i++) {
+      const r = Math.random();
+      stars.push({
+        x: rand(0, W), y: rand(0, H),
+        size: r < 0.85 ? rand(0.3, 0.9) : r < 0.97 ? rand(0.9, 1.6) : rand(1.6, 2.6),
+        base: rand(0.15, 0.7), phase: rand(0, 6.28), speed: rand(0.4, 1.4),
+        tone: Math.floor(rand(82, 96)),
+      });
+    }
+    for (let i = 0; i < 6; i++) {
+      stars.push({ x: rand(0, W), y: rand(0, H), size: rand(2.2, 3.5), base: rand(0.5, 0.85),
+                   phase: rand(0, 6.28), speed: rand(0.3, 0.8), bright: true });
+    }
+  }
+
+  function glow(cx, cy, r, color) {
+    const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    g.addColorStop(0, color);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    glow(W * 0.55, H * 0.45, W * 0.55, 'rgba(60,90,160,0.10)');
+    glow(W * 0.20, H * 0.70, W * 0.35, 'rgba(80,50,130,0.07)');
+    t += 0.012;
+    for (const s of stars) {
+      ctx.globalAlpha = Math.min(1, Math.max(0, s.base + Math.sin(t * s.speed + s.phase) * 0.18));
+      if (s.bright) {
+        const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 4);
+        g.addColorStop(0, 'rgba(180,210,255,0.9)');
+        g.addColorStop(1, 'rgba(180,210,255,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.size * 4, 0, 6.28); ctx.fill();
+      }
+      ctx.fillStyle = s.bright ? '#ccdeff' : `hsl(210,40%,${s.tone}%)`;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, 6.28); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    frame = requestAnimationFrame(draw);
+  }
+
+  new ResizeObserver(() => { cancelAnimationFrame(frame); build(); draw(); }).observe(canvas.parentElement);
+
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.hero .site-nav');
+  toggle.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', String(nav.classList.toggle('open')));
+  });
+
+  const hero = document.querySelector('.hero');
+  const pageNav = document.querySelector('.page-nav');
+  pageNav.style.transition = 'opacity .2s';
+  new IntersectionObserver(([e]) => {
+    pageNav.style.opacity = e.isIntersecting ? '0' : '1';
+    pageNav.style.pointerEvents = e.isIntersecting ? 'none' : '';
+  }).observe(hero);
+})();
+</script>

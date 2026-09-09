@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="page-nav">
+  <div class="container page-nav-inner">
+    <a class="site-title-sm" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <nav class="site-nav-sm" aria-label="Main navigation">
+      <ul>
+        <li><a href="{{ '/research/' | relative_url }}"{% if page.url contains '/research' %} class="active"{% endif %}>Research</a></li>
+        <li><a href="{{ '/publications/' | relative_url }}"{% if page.url contains '/publications' %} class="active"{% endif %}>Publications</a></li>
+        <li><a href="{{ '/outreach/' | relative_url }}"{% if page.url contains '/outreach' %} class="active"{% endif %}>Outreach</a></li>
+        <li><a href="{{ '/assets/cv.pdf' | relative_url }}" target="_blank">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<header class="page-banner">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="sub">{{ page.subtitle }}</p>{% endif %}
+  </div>
+</header>
+<main class="content">
+  <div class="container">
+    {{ content }}
+  </div>
+</main>
