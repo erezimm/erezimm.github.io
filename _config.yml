@@ -1,6 +1,6 @@
 title: "Erez Zimmerman"
 description: "Erez Zimmerman — Observational Astrophysicist | Supernovae | Time-Domain Astronomy. PhD candidate, Weizmann Institute of Science."
-url: "https://erezimm.github.io"   # TODO: confirm; for a project site also set baseurl: "/<repo>"
+url: "https://erezimm.github.io"
 baseurl:
 
 author:
