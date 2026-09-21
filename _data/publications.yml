@@ -1,5 +1,5 @@
 # Bold your name with **...**. Fields: title, authors, journal, year, arxiv, doi,
-# status (published | submitted | inprep), ads (ADS abstract URL).
+# status (published | inpress | submitted | inprep), ads (ADS abstract URL).
 # Title links to arXiv when present, otherwise to the DOI.
 
 first_author:
@@ -14,12 +14,12 @@ first_author:
 
   - title: "A Faint Progenitor System for the Faint Supernova 2024vjm"
     authors: "**Zimmerman, E. A.**, Gal-Yam, A., et al."
-    journal: "Nature Astronomy, in review"
+    journal: "Nature Astronomy, in press"
     year: 2026
     arxiv: "2602.09096"
     doi: ""
     ads: "https://ui.adsabs.harvard.edu/abs/2026arXiv260209096Z/abstract"
-    status: submitted
+    status: inpress
 
 # Selected co-authored papers (same selection as the CV). Full list on ADS.
 coauthor:
