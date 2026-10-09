@@ -13,7 +13,7 @@ title: Outreach, Service & Media
       <div class="talk-year">{{ it.date | append: "-01" | date: "%b %Y" }}</div>
       <div>
         <div class="talk-title">{% if it.url != "" %}<a href="{{ it.url }}" target="_blank" rel="noopener">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</div>
-        <div class="talk-venue">{{ it.venue }}</div>
+        {% if it.venue != "" %}<div class="talk-venue">{{ it.venue }}</div>{% endif %}
       </div>
     </li>
     {% endfor %}
