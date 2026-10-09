@@ -12,34 +12,34 @@ title: Publications
 <p class="pub-group-title">First author</p>
 <ul class="pub-list">
   {% for pub in site.data.publications.first_author %}
+  {% if pub.arxiv != "" %}{% capture href %}https://arxiv.org/abs/{{ pub.arxiv }}{% endcapture %}{% elsif pub.doi != "" %}{% capture href %}https://doi.org/{{ pub.doi }}{% endcapture %}{% else %}{% assign href = pub.ads %}{% endif %}
   <li class="pub-item">
     <p class="pub-authors">{{ pub.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
-    <p class="pub-title"><a href="{% if pub.arxiv != "" %}https://arxiv.org/abs/{{ pub.arxiv }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener">{{ pub.title }}</a></p>
-    <p class="pub-venue">{% if pub.journal %}{{ pub.journal }} {% endif %}({{ pub.year }})</p>
+    <p class="pub-title"><a href="{{ href }}" target="_blank" rel="noopener">{{ pub.title }}</a></p>
+    <p class="pub-venue">{{ pub.journal }} ({{ pub.year }})</p>
     <div class="pub-meta">
-      {% if pub.status == 'submitted' %}<span class="badge badge-submitted">Submitted</span>{% endif %}
-      {% if pub.status == 'inpress' %}<span class="badge badge-submitted">In press</span>{% endif %}
-      {% if pub.status == 'inprep' %}<span class="badge badge-inprep">In prep</span>{% endif %}
+      {% case pub.status %}{% when 'aip' %}<span class="badge badge-submitted">Accepted in principle</span>{% when 'accepted' %}<span class="badge badge-submitted">Accepted</span>{% when 'submitted' %}<span class="badge badge-submitted">Submitted</span>{% when 'inprep' %}<span class="badge badge-inprep">In prep</span>{% endcase %}
       {% if pub.arxiv != "" %}<a class="pub-link" href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener">arXiv:{{ pub.arxiv }}</a>{% endif %}
       {% if pub.doi != "" %}<a class="pub-link" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-      <a class="pub-link" href="{{ pub.ads }}" target="_blank" rel="noopener">ADS</a>
+      {% if pub.ads != "" %}<a class="pub-link" href="{{ pub.ads }}" target="_blank" rel="noopener">ADS</a>{% endif %}
     </div>
   </li>
   {% endfor %}
 </ul>
 
-<p class="pub-group-title" style="margin-top:3rem;">Selected co-author</p>
+<p class="pub-group-title" style="margin-top:3rem;">Co-author</p>
 <ul class="pub-list">
   {% for pub in site.data.publications.coauthor %}
+  {% if pub.arxiv != "" %}{% capture href %}https://arxiv.org/abs/{{ pub.arxiv }}{% endcapture %}{% elsif pub.doi != "" %}{% capture href %}https://doi.org/{{ pub.doi }}{% endcapture %}{% else %}{% assign href = pub.ads %}{% endif %}
   <li class="pub-item">
     <p class="pub-authors">{{ pub.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
-    <p class="pub-title"><a href="{% if pub.arxiv != "" %}https://arxiv.org/abs/{{ pub.arxiv }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener">{{ pub.title }}</a></p>
-    <p class="pub-venue">{% if pub.journal %}{{ pub.journal }} {% endif %}({{ pub.year }})</p>
+    <p class="pub-title"><a href="{{ href }}" target="_blank" rel="noopener">{{ pub.title }}</a></p>
+    <p class="pub-venue">{{ pub.journal }} ({{ pub.year }})</p>
     <div class="pub-meta">
-      {% if pub.status == 'submitted' %}<span class="badge badge-submitted">Submitted</span>{% endif %}
+      {% case pub.status %}{% when 'aip' %}<span class="badge badge-submitted">Accepted in principle</span>{% when 'accepted' %}<span class="badge badge-submitted">Accepted</span>{% when 'submitted' %}<span class="badge badge-submitted">Submitted</span>{% when 'inprep' %}<span class="badge badge-inprep">In prep</span>{% endcase %}
       {% if pub.arxiv != "" %}<a class="pub-link" href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener">arXiv:{{ pub.arxiv }}</a>{% endif %}
       {% if pub.doi != "" %}<a class="pub-link" href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-      <a class="pub-link" href="{{ pub.ads }}" target="_blank" rel="noopener">ADS</a>
+      {% if pub.ads != "" %}<a class="pub-link" href="{{ pub.ads }}" target="_blank" rel="noopener">ADS</a>{% endif %}
     </div>
   </li>
   {% endfor %}

@@ -27,18 +27,19 @@ title: Home
     <div class="hero-inner">
       <div class="hero-text">
         <h1 class="hero-name">{{ site.author.name }}</h1>
-        <p class="hero-title">Observational Astrophysicist &nbsp;|&nbsp; Supernovae &nbsp;|&nbsp; Time-Domain Astronomy</p>
+        <p class="hero-title">PhD Candidate in Astrophysics &nbsp;&middot;&nbsp; Weizmann Institute of Science</p>
         <p class="hero-bio">
           I am an observational astronomer studying supernovae of all kinds, from the
           first hours after explosion to late phases, to constrain their progenitor
           stars, map their mass-loss history, and understand their explosion
           mechanisms. I led the Nature study of the decadal supernova 2023ixf, for
-          which I obtained <em>HST</em> UV spectra, and the study of the extremely
-          faint Iax supernova 2024vjm from a pre-explosion <em>Euclid</em> image
-          (in press, Nature Astronomy). I am PI of programs on the Hubble Space
+          which I obtained first-of-its-kind ultraviolet spectroscopy with the
+          <em>Hubble Space Telescope</em>, and the study of the extremely faint Iax
+          supernova 2024vjm from a pre-explosion <em>Euclid</em> image (accepted in
+          principle, Nature Astronomy). I am PI of programs on the Hubble Space
           Telescope, Chandra, the VLT, and Gemini, and I developed CAST, the transient
-          marshal of the LAST collaboration. PhD candidate at the Weizmann Institute
-          of Science, expected Oct. 2026.
+          marshal of the Weizmann Observatory's LAST collaboration. PhD expected
+          Oct. 2026.
         </p>
         <div class="hero-links">
           <a class="primary" href="{{ '/assets/cv.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
@@ -80,7 +81,7 @@ title: Home
         {% for pub in site.data.publications.first_author %}
         <li class="pub-item">
           <p class="pub-title">
-            <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+            <a href="{% if pub.arxiv != "" %}https://arxiv.org/abs/{{ pub.arxiv }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener">{{ pub.title }}</a>
           </p>
           <p class="pub-venue">{{ pub.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}{% if pub.journal %} &middot; {{ pub.journal }}{% endif %} ({{ pub.year }})</p>
         </li>
@@ -104,12 +105,14 @@ title: Home
     <section class="section">
       <p class="section-label">Collaborations</p>
       <p class="lead">
-        I am an active participant in major transient collaborations including LAST,
-        BlackGEM, ePESSTO+, SoXS, ULTRASAT, and formerly ZTF, and a fellow of the
-        <a href="https://www.multimessenger-school.de/members/" target="_blank" rel="noopener">Weizmann–Helmholtz Multi-Messenger School</a>.
-        I developed
+        I am a member of major transient collaborations including BlackGEM, LAST,
+        ePESSTO+, SoXS, ULTRASAT, and formerly ZTF. I lead the BlackGEM consortium
+        bi-weekly transient meetings, and I developed
         <a href="https://github.com/erezimm/CAST" target="_blank" rel="noopener">CAST</a>,
-        a TOM-based transient marshal for the LAST collaboration.
+        a TOM-based transient marshal for the Weizmann Observatory's LAST collaboration.
+        Fellow of the
+        <a href="https://www.multimessenger-school.de/members/" target="_blank" rel="noopener">Weizmann–Helmholtz Multi-Messenger School</a>
+        (2021–2026).
       </p>
     </section>
 

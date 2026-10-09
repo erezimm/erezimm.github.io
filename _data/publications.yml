@@ -1,9 +1,10 @@
-# Bold your name with **...**. Fields: title, authors, journal, year, arxiv, doi,
-# status (published | inpress | submitted | inprep), ads (ADS abstract URL).
-# Title links to arXiv when present, otherwise to the DOI.
+# Mirrors the CV. Bold your name with **...**.
+# Fields: title, authors, journal, year, arxiv, doi, ads (ADS abstract URL),
+# status (published | accepted | aip | submitted | inprep).
+# Title links to arXiv if present, else DOI, else ADS. Empty links are hidden.
 
 first_author:
-  - title: "The complex circumstellar environment of supernova 2023ixf"
+  - title: "The Complex Circumstellar Environment of Supernova 2023ixf"
     authors: "**Zimmerman, E. A.**, Irani, I., Chen, P., Gal-Yam, A., et al."
     journal: "Nature 627, 759–762"
     year: 2024
@@ -14,14 +15,13 @@ first_author:
 
   - title: "A Faint Progenitor System for the Faint Supernova 2024vjm"
     authors: "**Zimmerman, E. A.**, Gal-Yam, A., et al."
-    journal: "Nature Astronomy, in press"
+    journal: "Nature Astronomy, accepted in principle"
     year: 2026
     arxiv: "2602.09096"
     doi: ""
     ads: "https://ui.adsabs.harvard.edu/abs/2026arXiv260209096Z/abstract"
-    status: inpress
+    status: aip
 
-# Selected co-authored papers (same selection as the CV). Full list on ADS.
 coauthor:
   - title: "The Type IIn SN 2025cbj coincidence with the high-energy neutrino IceCube-250421A"
     authors: "Garrappa, S., **Zimmerman, E. A.**, et al."
@@ -30,6 +30,33 @@ coauthor:
     arxiv: "2512.07936"
     doi: "10.1051/0004-6361/202558356"
     ads: "https://ui.adsabs.harvard.edu/abs/2026A%26A...708A.223G/abstract"
+    status: published
+
+  - title: "The flash-ionised SN Ibn 2025kzr: H-free circumstellar material formed during a precursor outburst 55 days prior to explosion"
+    authors: "de Wet, S., Leloudas, G., Buckley, D. A. H., Erasmus, N., Groot, P. J., **Zimmerman, E. A.**, et al."
+    journal: "A&A, accepted"
+    year: 2026
+    arxiv: "2606.18962"
+    doi: ""
+    ads: ""
+    status: accepted
+
+  - title: "SN 2019vxm: A Shocking Coincidence between Fermi and TESS"
+    authors: "Lane, Z. G., et al. (incl. **Zimmerman, E. A.**)"
+    journal: "ApJ 1003, 19"
+    year: 2026
+    arxiv: ""
+    doi: "10.3847/1538-4357/ae6245"
+    ads: ""
+    status: published
+
+  - title: "The Large Array Survey Telescope Pipeline: II. Image subtraction and transient detection"
+    authors: "Konno, R., et al. (incl. **Zimmerman, E. A.**)"
+    journal: "A&A 710, A406"
+    year: 2026
+    arxiv: ""
+    doi: "10.1051/0004-6361/202558363"
+    ads: ""
     status: published
 
   - title: "XSNAP: An X-ray Supernova Analysis Pipeline with Application to the Type II Supernova 2024ggi"
@@ -41,13 +68,22 @@ coauthor:
     ads: "https://ui.adsabs.harvard.edu/abs/2026ApJ..1001...26F/abstract"
     status: published
 
-  - title: "Extremely stripped supernova reveals a silicon and sulfur formation site"
+  - title: "Extremely Stripped Supernova Reveals a Silicon and Sulfur Formation Site"
     authors: "Schulze, S., et al. (incl. **Zimmerman, E. A.**)"
     journal: "Nature 644, 634–639"
     year: 2025
     arxiv: ""
     doi: "10.1038/s41586-025-09375-3"
     ads: "https://ui.adsabs.harvard.edu/abs/2025Natur.644..634S/abstract"
+    status: published
+
+  - title: "A low mass, binary-stripped envelope for the Type IIb SN 2024abfo"
+    authors: "de Wet, S., Leloudas, G., Buckley, D. A. H., Erasmus, N., Groot, P. J., **Zimmerman, E. A.**"
+    journal: "A&A 704, A89"
+    year: 2025
+    arxiv: ""
+    doi: "10.1051/0004-6361/202556356"
+    ads: ""
     status: published
 
   - title: "A Search for Minute-timescale Flares from the Transient AT 2024wpp"
@@ -57,6 +93,15 @@ coauthor:
     arxiv: ""
     doi: "10.3847/1538-4357/ae00c0"
     ads: "https://ui.adsabs.harvard.edu/abs/2025ApJ...993...76O/abstract"
+    status: published
+
+  - title: "Low-luminosity Type IIP Supernovae from the Zwicky Transient Facility Census of the Local Universe. I. Luminosity Function, Volumetric Rate"
+    authors: "Das, K. K., et al. (incl. **Zimmerman, E. A.**)"
+    journal: "PASP 137, 044203"
+    year: 2025
+    arxiv: ""
+    doi: ""
+    ads: "https://ui.adsabs.harvard.edu/abs/2025PASP..137d4203D/abstract"
     status: published
 
   - title: "The Progenitor Star of SN 2023ixf: A Massive Red Supergiant with Enhanced, Episodic Pre-Supernova Mass Loss"
@@ -86,8 +131,17 @@ coauthor:
     ads: "https://ui.adsabs.harvard.edu/abs/2024ApJ...970...96I/abstract"
     status: published
 
+  - title: "SN 2022oqm–A Ca-rich Explosion of a Compact Progenitor Embedded in C/O Circumstellar Material"
+    authors: "Irani, I., et al. (incl. **Zimmerman, E. A.**)"
+    journal: "ApJ 962, 109"
+    year: 2024
+    arxiv: "2210.02554"
+    doi: ""
+    ads: "https://ui.adsabs.harvard.edu/abs/2024ApJ...962..109I/abstract"
+    status: published
+
   - title: "The Prevalence and Influence of Circumstellar Material Around Hydrogen-rich Supernova Progenitors"
-    authors: "Bruch, R. J., Gal-Yam, A., Yaron, O., Chen, P., Strotjohann, N. L., Irani, I., **Zimmerman, E. A.**, et al."
+    authors: "Bruch, R. J., Gal-Yam, A., Yaron, O., Chen, P., Strotjohann, N. L., Irani, I., **Zimmerman, E.**, et al."
     journal: "ApJ 952, 119"
     year: 2023
     arxiv: "2212.03313"
@@ -95,11 +149,29 @@ coauthor:
     ads: "https://ui.adsabs.harvard.edu/abs/2023ApJ...952..119B/abstract"
     status: published
 
-  - title: "A WC/WO star exploding within an expanding carbon–oxygen–neon nebula"
+  - title: "A WC/WO Star Exploding Within an Expanding Carbon–Oxygen–Neon Nebula"
     authors: "Gal-Yam, A., et al. (incl. **Zimmerman, E. A.**)"
     journal: "Nature 601, 201–204"
     year: 2022
     arxiv: "2111.12435"
     doi: "10.1038/s41586-021-04155-1"
     ads: "https://ui.adsabs.harvard.edu/abs/2022Natur.601..201G/abstract"
+    status: published
+
+  - title: "Candidate Tidal Disruption Event AT2019fdr Coincident with a High-Energy Neutrino"
+    authors: "Reusch, S., et al. (incl. **Zimmerman, E.**)"
+    journal: "Phys. Rev. Lett. 128, 221101"
+    year: 2022
+    arxiv: ""
+    doi: ""
+    ads: "https://ui.adsabs.harvard.edu/abs/2022PhRvL.128v1101R/abstract"
+    status: published
+
+  - title: "The Spectacular Ultraviolet Flash from the Peculiar Type Ia Supernova 2019yvq"
+    authors: "Miller, A. A., Magee, M. R., Polin, A., Maguire, K., **Zimmerman, E.**, et al."
+    journal: "ApJ 898, 56"
+    year: 2020
+    arxiv: "2005.05972"
+    doi: "10.3847/1538-4357/ab9e05"
+    ads: "https://ui.adsabs.harvard.edu/abs/2020ApJ...898...56M/abstract"
     status: published
