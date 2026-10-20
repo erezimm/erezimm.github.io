@@ -29,3 +29,9 @@ exclude:
   - README.md
   - vendor
   - photos
+
+defaults:
+  - scope:
+      path: "google85002a4742ec3683.html"
+    values:
+      sitemap: false
