@@ -9,9 +9,10 @@ title: Publications
   {% if site.author.scholar %}<a class="pub-link" href="https://scholar.google.com/citations?user={{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}
 </p>
 
-<p class="pub-group-title">First author</p>
+<p class="pub-group-title">First and second author</p>
 <ul class="pub-list">
-  {% for pub in site.data.publications.first_author %}
+  {% assign lead = site.data.publications.first_author | concat: site.data.publications.second_author %}
+  {% for pub in lead %}
   {% if pub.arxiv != "" %}{% capture href %}https://arxiv.org/abs/{{ pub.arxiv }}{% endcapture %}{% elsif pub.doi != "" %}{% capture href %}https://doi.org/{{ pub.doi }}{% endcapture %}{% else %}{% assign href = pub.ads %}{% endif %}
   <li class="pub-item">
     <p class="pub-authors">{{ pub.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
